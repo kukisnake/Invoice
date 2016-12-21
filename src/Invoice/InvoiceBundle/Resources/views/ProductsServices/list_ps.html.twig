@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}List P/S{% endblock %}
+
+{% block body %}
+<h1>This is the list of all your products/services:</h1>
+<ul>
+{% for product in products%}
+    <li><a href="formPS/{{product.id}}">{{product.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

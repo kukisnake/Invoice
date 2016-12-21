@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Add P/S{% endblock %}
+
+{% block body %}
+<h1>Hello!</h1>
+<h2>Would you like to add some product/service?<h2>
+{{ form_start(form) }}
+
+{{ form_widget(form) }}
+
+{{ form_end(form) }}
+{% endblock %}

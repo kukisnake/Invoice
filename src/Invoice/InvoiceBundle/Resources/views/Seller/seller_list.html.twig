@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}InvoiceBundle:ProductsServices:editPS{% endblock %}
+
+{% block body %}
+<h1>This is the list of all your sellers:</h1>
+<ul>
+{% for seller in sellers%}
+    <li><a href="/sellerForm/{{seller.id}}">{{seller.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
