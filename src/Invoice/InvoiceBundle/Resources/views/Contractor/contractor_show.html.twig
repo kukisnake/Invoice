@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Contractor Show{% endblock %}
+
+{% block body %}
+<h1>This is your chosen contractor: {{contractor.name}}</h1>
+<h3><a href="http://localhost:8080/contractorForm/{{id}}">Edit</a><h3>
+<h3><a href="http://localhost:8080/contractorList">Go back to list</a><h3>
+{% endblock %}

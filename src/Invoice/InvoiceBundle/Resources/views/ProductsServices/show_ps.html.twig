@@ -3,5 +3,6 @@
 {% block title %}InvoiceBundle:ProductsServices:showPS{% endblock %}
 
 {% block body %}
-<h1>This is your chosen product/service: {{product.name}}</h1>
+    <h1>This is your chosen product/service: {{product.name}}</h1>
+    <h2><a href="http://localhost:8080/formPS/{{product.id}}">Edit</a></h2>
 {% endblock %}

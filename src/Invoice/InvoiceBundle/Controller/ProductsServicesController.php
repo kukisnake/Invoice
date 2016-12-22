@@ -23,7 +23,7 @@ class ProductsServicesController extends Controller {
                     'No product found for id ' . $id
             );
         }
-        return $this->render('InvoiceBundle:ProductsServices:show_ps.html.twig', array('product' => $product
+        return $this->render('InvoiceBundle:ProductsServices:show_ps.html.twig', array('product' => $product, 'id' => $id
         ));
     }
 
@@ -58,7 +58,7 @@ class ProductsServicesController extends Controller {
                 ->add('price', 'number')
                 ->add('vatRate', 'text')
                 ->add('unit', 'text')
-                ->add('save', 'submit', array('label' => 'Create Product/Service'))
+                ->add('save', 'submit', array('label' => 'Update Product/Service'))
                 ->getForm();
         $form->handleRequest($req);
 
@@ -72,7 +72,7 @@ class ProductsServicesController extends Controller {
             $em->flush();
             return $this->redirectToRoute('listPS');
         }
-        return $this->render('InvoiceBundle:ProductsServices:add_ps.html.twig', array('form' => $form->createView())
+        return $this->render('InvoiceBundle:ProductsServices:add_ps.html.twig', array('form' => $form->createView(), 'id' => $id)
         );
     }
 

@@ -3,11 +3,11 @@
 {% block title %}Seller Form{% endblock %}
 
 {% block body %}
-<h1>Hello!</h1>
-<h2>Would you like to add some seller?<h2>
+<h2>Would you like to add/update some seller?<h2>
 {{ form_start(form) }}
 
 {{ form_widget(form) }}
 
 {{ form_end(form) }}
+<h3><a href="http://localhost:8080/sellerList">Go back to list</a><h3>
 {% endblock %}

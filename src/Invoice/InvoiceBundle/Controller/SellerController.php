@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SellerController extends Controller {
 
     /**
-     * @Route("/sellerList")
+     * @Route("/sellerList", name="sellerList")
      */
     public function sellerListAction() {
 
@@ -28,12 +28,12 @@ class SellerController extends Controller {
                 ->getRepository('InvoiceBundle:Seller')
                 ->findOneById($id);
 
-        if (!$seller) {
+    if (!$seller) {
             throw $this->createNotFoundException(
                     'No seller found for id ' . $id
             );
         }
-        return $this->render('InvoiceBundle:Seller:seller_show.html.twig', array('seller' => $seller
+        return $this->render('InvoiceBundle:Seller:seller_show.html.twig', array('seller' => $seller, 'id' => $id
         ));
     }
 
@@ -53,7 +53,7 @@ class SellerController extends Controller {
                 ->add('nip', 'number')
                 ->add('bank', 'text')
                 ->add('accountNumber', 'text')
-                ->add('save', 'submit', array('label' => 'Submit Seller'))
+                ->add('save', 'submit', array('label' => 'Update Seller'))
                 ->getForm();
         $form->handleRequest($req);
 
@@ -62,6 +62,7 @@ class SellerController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($seller);
             $em->flush();
+            return $this->redirectToRoute('sellerList');
         }
         return $this->render('InvoiceBundle:Seller:seller_form.html.twig', array('form' => $form->createView())
         );

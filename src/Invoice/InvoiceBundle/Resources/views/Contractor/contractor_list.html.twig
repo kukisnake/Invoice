@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Contractors List{% endblock %}
+
+{% block body %}
+<h1>This is the list of all your contractors:</h1>
+<ul>
+{% for contractor in contractors%}
+    <li><a href="/contractorForm/{{contractor.id}}">{{contractor.name}}</a></li>
+{% endfor %}
+<li><a href="http://localhost:8080/contractorForm">New contractor</a></li>
+</ul>
+{% endblock %}
