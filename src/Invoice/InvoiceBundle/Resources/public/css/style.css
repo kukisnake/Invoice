@@ -1,0 +1,19 @@
+body {
+    background: #cacaca;
+    margin: 0 auto;
+}
+div h1, div h4 {
+    text-align: left;
+}
+h2, h3, h5 {
+    text-align: center;
+}
+div, .form {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+.form label{
+    display: block;
+}
+

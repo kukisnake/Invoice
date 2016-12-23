@@ -1,8 +1,8 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}Delete P/S{% endblock %}
 
-{% block body %}
+{% block body %}<div>
 <h1>{{product.name}} was deleted</h1>
-<h2><a href="http://localhost:8080/listPS">Go back to list</a></h2>
+<h2><a href="http://localhost:8080/listPS">Go back to list</a></h2></div>
 {% endblock %}

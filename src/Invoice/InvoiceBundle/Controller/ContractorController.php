@@ -21,19 +21,23 @@ class ContractorController extends Controller {
     }
 
     /**
-     * @Route("/contractorShow/{id}", defaults={"id" = false})
+     * @Route("/contractorShow/{id}", name="contractorShow", defaults={"id" = false})
      */
     public function contractorShowAction($id) {
         $contractor = $this->getDoctrine()
                 ->getRepository('InvoiceBundle:Contractor')
                 ->findOneById($id);
+        $address = $contractor->getAddress();
 
-    if (!$contractor) {
+        if (!$contractor) {
             throw $this->createNotFoundException(
                     'No contractor found for id ' . $id
             );
         }
-        return $this->render('InvoiceBundle:Contractor:contractor_show.html.twig', array('contractor' => $contractor, 'id' => $id
+        return $this->render('InvoiceBundle:Contractor:contractor_show.html.twig', array(
+                    'contractor' => $contractor,
+                    'id' => $id,
+                    'addresses' => $address
         ));
     }
 
@@ -62,9 +66,13 @@ class ContractorController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contractor);
             $em->flush();
-            return $this->redirectToRoute('contractorList');
+            return $this->redirectToRoute('contractorShow', array('id' => $id));
         }
-        return $this->render('InvoiceBundle:Contractor:contractor_form.html.twig', array('form' => $form->createView())
+        $backUrl = '/contractorShow/' . $contractor->getId();
+        return $this->render('InvoiceBundle:Contractor:contractor_form.html.twig', array(
+                    'form' => $form->createView(),
+                    'backUrl' => $backUrl
+                        )
         );
     }
 

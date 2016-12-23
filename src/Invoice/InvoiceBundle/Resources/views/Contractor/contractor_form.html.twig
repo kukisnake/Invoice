@@ -1,13 +1,13 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}Contractor Form{% endblock %}
 
-{% block body %}
-<h2>Would you like to add/update some contractor?<h2>
-{{ form_start(form) }}
+{% block body %}<div>
+        <h2>Would you like to add/update some contractor?<h2></div>
+{{ form_start(form, {'attr': {'class': 'form'} }) }}
 
 {{ form_widget(form) }}
 
 {{ form_end(form) }}
-<h3><a href="http://localhost:8080/contractorList">Go back to list</a><h3>
+<div><h3><a href="{{backUrl}}">Back</a></h3></div>
 {% endblock %}

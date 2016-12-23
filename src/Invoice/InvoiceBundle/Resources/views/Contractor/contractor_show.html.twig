@@ -1,9 +1,25 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}Contractor Show{% endblock %}
 
-{% block body %}
-<h1>This is your chosen contractor: {{contractor.name}}</h1>
-<h3><a href="http://localhost:8080/contractorForm/{{id}}">Edit</a><h3>
-<h3><a href="http://localhost:8080/contractorList">Go back to list</a><h3>
+{% block body %}<div>
+        <h1>This is your chosen contractor: {{contractor.name}}</h1>
+        <h2>Nip: {{contractor.nip}}</h2>
+        <h2>Bank: {{contractor.bank}}</h2>
+        <h2>Account number: {{contractor.accountNumber}}</h2>
+        <h3><a href="/contractorForm/{{id}}">Edit contractor info</a></h3>
+        {% if addresses | length > 0  %}
+            <h1>The address for this contractor is:</h1>
+            {% for address in addresses %}
+                <h2>City: {{address.city}}</h2>
+                <h2>Street: {{address.street}} {{address.streetNumber}}/{{address.flatNumber}}</h2>
+                <h2>Zip code: {{address.zipcode}}</h2>
+                <h2>Country: {{address.country}}</h2>
+
+                <h3><a href="/addressForm/{{address.id}}/contractor/{{contractor.id}}">Edit contractor address</a></h3>
+            {% endfor %}
+        {% else %}
+            <h3><a href="/addressForm/0/contractor/{{contractor.id}}">Set address</a></h3>
+        {% endif %}   
+        <h4><a href="/contractorList">Go back to list</a></h4></div>
 {% endblock %}

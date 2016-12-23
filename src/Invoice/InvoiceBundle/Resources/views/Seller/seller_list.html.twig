@@ -1,13 +1,14 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}Sellers List{% endblock %}
 
-{% block body %}
+{% block body %}<div>
 <h1>This is the list of all your sellers:</h1>
 <ul>
 {% for seller in sellers%}
-    <li><a href="/sellerForm/{{seller.id}}">{{seller.name}}</a></li>
+    <li><a href="/sellerShow/{{seller.id}}">{{seller.name}}</a></li>
 {% endfor %}
 <li><a href="http://localhost:8080/sellerForm">New seller</a></li>
 </ul>
+<h3><a href="http://localhost:8080">Main menu</a></h3></div>
 {% endblock %}

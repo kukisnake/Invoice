@@ -54,7 +54,7 @@ class ProductsServicesController extends Controller {
 
         $form = $this->createFormBuilder($ps)
 //                ->setAction($this->generateUrl('/listPS'))
-                ->add('name', 'text')
+                ->add('name', 'text')//array('attr'=>array('placeholder' =>'Name', 'class'=>'form-control', 'class'=>'form-signin-heading')))
                 ->add('price', 'number')
                 ->add('vatRate', 'text')
                 ->add('unit', 'text')

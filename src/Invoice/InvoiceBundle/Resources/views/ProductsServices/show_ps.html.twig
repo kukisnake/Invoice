@@ -1,8 +1,10 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}InvoiceBundle:ProductsServices:showPS{% endblock %}
 
-{% block body %}
+{% block body %}<div>
     <h1>This is your chosen product/service: {{product.name}}</h1>
-    <h2><a href="http://localhost:8080/formPS/{{product.id}}">Edit</a></h2>
+    <h3><a href="http://localhost:8080/formPS/{{product.id}}">Edit</a></h3>
+    <h3><a href="http://localhost:8080/deletePS/{{product.id}}">Delete</a></h3>
+    <h3><a href="http://localhost:8080/listPS">Go back to list</a></h3></div>
 {% endblock %}

@@ -1,15 +1,15 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}Add P/S{% endblock %}
 
 {% block body %}
-<h1></h1>
-<h2>Would you like to add/change some product/service?<h2>
-{{ form_start(form) }}
+    <div>
+        <h2>Would you like to add/change some product/service?<h2></div>
+{{ form_start(form, {'attr': {'class': 'form'} }) }}
 
 {{ form_widget(form) }}
 
 {{ form_end(form) }}
-<h3><a href="http://localhost:8080/deletePS/{{id}}">Delete</a></h3>
-<h3><a href="http://localhost:8080/listPS">Go back to list</a></h3>
+<div>
+    <h3><a href="http://localhost:8080/listPS">Go back to list</a></h3></div>
 {% endblock %}

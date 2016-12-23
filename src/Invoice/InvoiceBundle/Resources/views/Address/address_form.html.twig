@@ -1,0 +1,15 @@
+{% extends "InvoiceBundle:Default:index.html.twig" %}
+
+{% block title %}Address Form{% endblock %}
+
+{% block body %}<div>
+        <h2>Would you like to update address?</h2>
+    </div>
+    {{ form_start(form, {'attr': {'class': 'form'} }) }}
+
+    {{ form_widget(form) }}
+
+    {{ form_end(form) }}
+
+    <div><h3><a href="{{backUrl}}">Back</a></h3></div>
+{% endblock %}

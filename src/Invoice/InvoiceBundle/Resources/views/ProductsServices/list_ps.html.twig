@@ -1,13 +1,14 @@
-{% extends "::base.html.twig" %}
+{% extends "InvoiceBundle:Default:index.html.twig" %}
 
 {% block title %}List P/S{% endblock %}
 
-{% block body %}
+{% block body %}<div>
 <h1>This is the list of all your products/services:</h1>
 <ul>
 {% for product in products%}
-    <li><a href="formPS/{{product.id}}">{{product.name}}</a></li>
+    <li><a href="showPS/{{product.id}}">{{product.name}}</a></li>
 {% endfor %}
 <li><a href="http://localhost:8080/formPS">New product/service</a></li>
 </ul>
+<h3><a href="http://localhost:8080">Main menu</a></h3></div>
 {% endblock %}

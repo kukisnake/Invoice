@@ -42,7 +42,7 @@ class Seller {
 
     /**
      * @var type 
-     * @ORM\OneToMany(targetEntity="User", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="seller")
      */
     private $user;
 

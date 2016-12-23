@@ -1,0 +1,14 @@
+{% extends "InvoiceBundle:Default:index.html.twig" %}
+
+{% block title %}Address List{% endblock %}
+
+{% block body %}<div>
+<h1>This is the list of all your addresses:</h1>
+<ul>
+{% for address in addresses%}
+    <li><a href="/addressShow/{{address.id}}">{{address.city}}, {{address.street}} {{address.streetNumber}}/{{address.flatNumber}}</a></li>
+{% endfor %}
+<li><a href="/addressForm">New address</a></li>
+</ul>
+<h3><a href="http://localhost:8080">Main menu</a><h3></div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "InvoiceBundle:Default:index.html.twig" %}
+
+{% block title %}Seller Form{% endblock %}
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form'} }) }}
+
+    {{ form_widget(form) }}
+
+    {{ form_end(form) }}
+
+    {% for user in users %}
+        {{user.username}}
+        {% endfor %}
+
+{% endblock %}
